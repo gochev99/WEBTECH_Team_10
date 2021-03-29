@@ -1,0 +1,122 @@
+body{
+    background-color: lightgray;
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Poppins-Regular;
+    background-color: white;
+}
+
+#left-side {
+    height: 100%;
+    background-size: cover;
+    float: left;
+    overflow: hidden;
+}
+
+#right-side {
+    height: 100%;
+    padding: 50px;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+.container {
+    display: grid;
+    position: relative;
+    width: auto;
+    height: 100%;
+    grid-template-columns: 1.3fr 0.7fr;
+}
+
+#title {
+    /* color: rgb(116, 245, 66); */
+    background: -webkit-linear-gradient(blue, purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 32px;
+    text-align: center;
+    font-style: oblique;
+    line-height: normal;
+    vertical-align: middle;
+    margin: 50vh;
+}
+
+.input-template {
+    margin-bottom: 30px;
+    width: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+.my-inputs {
+    border: none;
+    border-bottom: 4px solid whitesmoke;
+    background-color: white;
+    box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    line-height: 1.2;
+    padding: 0px 2px;
+}
+
+.my-inputs:focus {
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, blue, purple);
+}
+
+.labels {
+    font-size: 18px;
+    font-family: Poppins-SemiBold;
+    color: #999;
+    padding-bottom: 4px;
+}
+
+a:link, a:visited {
+    color: #999;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+  
+a:hover, a:active {
+    background: -webkit-linear-gradient(blue, purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#login-link:link, #login-link:visited {
+    /* background-color: rgb(116, 245, 66); */
+    background-image: linear-gradient(to bottom, blue, purple);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    width: 50%;
+}
+  
+#login-link:hover, #login-link:active {
+    background-image: linear-gradient(to bottom, purple, blue);
+    background-clip: border-box;
+    -webkit-text-fill-color: white;
+}
+
+#arrow-sign::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: '\f178';
+}
+
+#wrap-links {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}

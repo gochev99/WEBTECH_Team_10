@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="index.js" async></script>
+    <title>Issue Tracker</title>
+</head>
+<body>
+    <div class='container'>
+        <div id='left-side' style="background-image: url('../images/placeholder.png');">
+            <p id='title'><b>The Issue Tracker</b></p>
+        </div>
+        <div id='right-side'>
+            <form id="login-form">
+                <h1>Sign in</h1>
+                <div class ='input-template' data-validate="Username is required">
+                    <span class='labels'><b>Username</b></span>
+                    <input class='my-inputs' type='text' placeholder="Username...">
+                </div>
+                <div class ='input-template' data-validate="Password is required">
+                    <span class='labels'><b>Password</b></span>
+                    <input class='my-inputs' type='password' placeholder="****************">
+                </div>
+                <div>
+                    <a id='login-link' href='index.html'>Login</a>
+                    <span>
+                        <p>Don't have an account? <a id='register' href='../register/register.html'>Register<i id='arrow-sign'></i></a></p>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
