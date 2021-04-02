@@ -1,0 +1,91 @@
+header {
+    
+    overflow: hidden;
+    background: -webkit-linear-gradient(blue, purple);
+    /*padding: 20px 10px;*/
+}
+#header-h {
+  margin: 2px;
+}
+#logo {
+    color: white;
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-size: 25px;
+  font-weight: bold;
+}
+#log-info p {
+  margin: 2px;
+}
+#log-out {
+    color: black;
+    border-radius: 12px;
+    padding: 5px;
+    float: right;
+    width: fit-content;
+    background-color: rgb(175, 175, 252)
+}
+#log-out:hover {
+  background-color: #111;
+}
+#log-info {
+    width: 50%;
+    float: right;
+    color: white;
+    text-align: right;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: -webkit-linear-gradient(purple, blue);
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+@media screen and (max-width:800px) {
+    #logo, #log-info {
+      width: 100%;
+    }
+    #log-info {
+      padding: 2px;
+    }
+    #logo {
+      text-align: center;
+    }
+    ul {
+        width: 100%;
+    }
+    li {
+        width: 20%;
+    }
+}
+@media screen and (max-width:500px) {
+    li {
+        width: 100%;
+    }
+    ul {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+}
