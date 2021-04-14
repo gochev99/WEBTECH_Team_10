@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Issue Tracker - Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/all-projects.css">
+    <title>Issue Tracker - Home</title>
 </head>
 <body>
-    <h1>This is the users page.</h1>
-
+    <div id="container">
+        <header>
+            <div id="logo">
+                <p id="header-h">THE ISSUE TRACKER</p>
+            </div>
+            <div id="log-info">
+                <p>You are now logged as 'username'</p>
+            
+                <div id="log-out">
+                    <a href="login/index.html">Log out</a>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="home.html">Home</a></li>
+              </ul>
+        </nav>
+        <main>
+            <section id="top-text">
+                <p>Home > Users</p>
+            </section>
+            
+            <section id="all">
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                    </tr>
+                    <tr>
+                        <td>usrnme1</td>
+                        <td>John Doe</td>
+                        <td>user_email@mail.com</td>
+                    </tr>
+                    <tr>
+                        <td>usrnme2</td>
+                        <td>Jane Doe</td>
+                        <td>user_email@mail.com</td>
+                    </tr>
+                </table>
+            </section>
+        </main>
+    </div>
 </body>
 </html>

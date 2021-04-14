@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/projects.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/all-tickets.css">
     <title>Issue Tracker - Home</title>
 </head>
 <body>
@@ -29,27 +29,37 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="home.html">Home</a></li>
               </ul>
-
         </nav>
         <main>
             <section id="top-text">
-                <p>Home > Tickets</p>
+                <p>Home > Tickets > All Tickets</p>
             </section>
-            <section id="main-content">
-                <section id="choices">
-                <div class="inner-choice">
-                    <a href="all-tickets.html">
-                        <img class="im" alt="alt text" src="../images/tickets.png">
-                        <h3>All Tickets</h3> 
-                    </a>
-                </div>
-                <div class="inner-choice">
-                    <a href="create-ticket.html">
-                        <img class="im" alt="alt text" src="../images/add-ticket.png">
-                        <h3>Create New Ticket</h3> 
-                    </a>
-                </div>
-                </section>
+            
+            <section id="all">
+                <table>
+                    <tr>
+                        <th>Issue Name</th>
+                        <th>Issue Description</th>
+                        <th>Related Project</th>
+                        <th>Priority</th>
+                        <th>Target Resolution Date</th>
+                    </tr>
+                    <tr>
+                        <td>Issue 1</td>
+                        <td>Some description about Issue 1</td>
+                        <td>Project 1</td>
+                        <td>Medium</td>
+                        <td>07-01-2021</td>
+                    </tr>
+                    <tr>
+                        <td>Issue 2</td>
+                        <td>Some description about Issue 2</td>
+                        <td>Project 2</td>
+                        <td>Low</td>
+                        <td>15-02-2021</td>
+                    </tr>
+                </table>
+            </section>
         </main>
     </div>
 </body>
