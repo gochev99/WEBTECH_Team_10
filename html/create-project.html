@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/projects.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/create-project.css">
     <title>Issue Tracker - Home</title>
 </head>
 <body>
@@ -29,27 +29,23 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="home.html">Home</a></li>
               </ul>
-
         </nav>
         <main>
             <section id="top-text">
-                <p>Home > Tickets</p>
+                <p>Home > Projects > Create New Project</p>
             </section>
-            <section id="main-content">
-                <section id="choices">
-                <div class="inner-choice">
-                    <a href="all-tickets.html">
-                        <img class="im" alt="alt text" src="../images/tickets.png">
-                        <h3>All Tickets</h3> 
-                    </a>
-                </div>
-                <div class="inner-choice">
-                    <a href="create-ticket.html">
-                        <img class="im" alt="alt text" src="../images/add-ticket.png">
-                        <h3>Create New Ticket</h3> 
-                    </a>
-                </div>
-                </section>
+            <section id="form">
+                <form id="create-form">
+                    <label for="p-name">Project name:</label><br>
+                    <input type="text" id="pname" name="p-name" ><br>
+                    <label for="st-date">Start date:</label><br>
+                    <input type="date" id="st-date" name="st-date"><br>
+                    <label for="end-date">Target end date:</label><br>
+                    <input type="date" id="end-date" name="end-date"><br><br>
+                    <input type="submit" value="Create">
+                </form>
+
+            </section>
         </main>
     </div>
 </body>
