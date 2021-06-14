@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../register/register.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="index.js" async></script>
+    <script src="../scripts/login.js" async></script>
     <title>Issue Tracker</title>
 </head>
 <body>
@@ -19,14 +19,14 @@
                 <h1>Sign in</h1>
                 <div class ='input-template' data-validate="Username is required">
                     <span class='labels'><b>Username</b></span>
-                    <input class='my-inputs' type='text' placeholder="Username...">
+                    <input id='input_username' class='my-inputs' type='text' placeholder="Username...">
                 </div>
                 <div class ='input-template' data-validate="Password is required">
                     <span class='labels'><b>Password</b></span>
-                    <input class='my-inputs' type='password' placeholder="****************">
+                    <input id='input_password' class='my-inputs' type='password' placeholder="****************">
                 </div>
                 <div>
-                    <a id='login-link' href='index.html'>Login</a>
+                    <a id='login-link'>Login</a>
                     <span>
                         <p>Don't have an account? <a id='register' href='../register/register.html'>Register<i id='arrow-sign'></i></a></p>
                     </span>

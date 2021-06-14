@@ -29,4 +29,6 @@ login.post('/', validateUser, loginAuth, errorCatch(async (request: Request, res
     response.status(200).json({success: true});
 }));
 
+
+
 export default login;
