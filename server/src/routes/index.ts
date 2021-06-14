@@ -6,6 +6,7 @@ import register from './register';
 const routes = express.Router();
 
 routes.use('/login', login);
+
 routes.use('/register', register);
 
 routes.get('/', (request: express.Request, response: express.Response) => {
