@@ -1,11 +1,12 @@
 import * as express from 'express';
+import connectDB from "./src/db/index";
 
-import connectDB from "./db/index";
-
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 
-const SERVER_PORT = process.env.SERVER_PORT || 3001;
+const SERVER_PORT = process.env.SERVER_PORT || 3002;
 
 connectDB()
     .then(() => {
@@ -15,4 +16,4 @@ connectDB()
             console.log(`Server is listening on port ${SERVER_PORT}`);
         });
     })
-    .catch(error => console.error('Database connection error'));
+    .catch(error => console.error(`Database connection error:${error}`));
