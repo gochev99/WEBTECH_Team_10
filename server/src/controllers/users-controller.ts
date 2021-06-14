@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt';
 import * as _ from 'lodash';
 import * as mongoose from 'mongoose';
 import IUser from '../interfaces/user';
-import { read, write } from '../utils/file-utils';
+// import { read, write } from '../utils/file-utils';
 import { UserDocument, User } from '../models/user';
 
 
