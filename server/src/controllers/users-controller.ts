@@ -5,8 +5,6 @@ import IUser from '../interfaces/user';
 import { read, write } from '../utils/file-utils';
 import { UserDocument, User } from '../models/user';
 
-const filePath: string = '../resources';
-const filename: string = '/users.json';
 
 class UserController {
     construct() {} 
@@ -21,9 +19,10 @@ class UserController {
 
             const newUser = new User({
                 _id: new mongoose.Types.ObjectId(),
+                fullName: user.fullName,
                 username: user.username,
-                password: user.password, 
-                email: user.email
+                email: user.email,
+                password: user.password
             });
 
             await newUser.save();
@@ -35,12 +34,6 @@ class UserController {
         return User.findOne({ username: user }).exec();
     }
 
-    private async readUsers(): Promise<{ [users: string]: IUser[] }> {
-        const users: string = await read(filePath, filename);
-        const usersObject: { [users: string]: IUser[] } = JSON.parse(users);
-
-        return usersObject;
-    }
 
     public validateUser(user: IUser, confirmPassword: string): string[] {
         const errors: string[] = [];
