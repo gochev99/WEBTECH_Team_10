@@ -1,0 +1,48 @@
+* {
+  box-sizing:border-box;
+}
+
+#top-content-text p, #bottom-content-text p{
+  font-size: 30px;
+  text-align: center;
+  margin: 3%
+}
+#bottom-content-text p {
+  padding-top: 2%;
+}
+.im {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#choices {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.inner-choice {
+  width: 20%;
+  height: 75%;
+  text-align: center;
+  margin: 2%;
+}
+.inner-choice a h3 {
+  margin: 2px;
+}
+
+@media screen and (max-width:500px) {
+  #top-content-text p, #bottom-content-text p{
+    font-size: medium;
+  }
+  #choices {
+    height: max-content;
+    padding: 5%;
+    display: block;
+  }
+  .inner-choice {
+    width: 25%;
+    justify-content: center;
+    margin-left: 35%;
+  }
+}
