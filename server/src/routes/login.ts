@@ -18,20 +18,6 @@ const getUsersController = (req: Request, res: Response, next: () => void) => {
 login.use(getUsersController);
 
 login.post('/', validateUser, loginAuth, errorCatch(async (request: Request, response: Response) => {
-    // const { userName, rememberMe } = request.body;
-
-    // const sessionData = request.session;
-    // sessionData.user = userName;
-
-    // if (rememberMe) {
-    //     bcrypt.hash(userName, 10, (error: Error, hash: string) => {
-    //         // TODO: Handle error
-            
-    //         response.cookie('remember', hash, {path: '/', maxAge: 9000, httpOnly: false});
-
-    //         response.set('Set-Cookie', `remeber=${hash}`);
-    //     });
-    // }
 
     const user: IUser = response.locals.user;
 

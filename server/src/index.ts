@@ -1,5 +1,4 @@
 import * as express from 'express';
-import {MongoClient} from "mongodb";
 
 import connectDB from "./db/index";
 

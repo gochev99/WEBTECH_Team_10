@@ -12,10 +12,8 @@ routes.get('/', (request: express.Request, response: express.Response) => {
     const rememberUser: string = request.cookies.remember;
 
     if (rememberUser) {
-        // {success: true}
         response.redirect('studets/marks');
     } else {
-        // {success: false}
         response.redirect('login');
     }
 });
