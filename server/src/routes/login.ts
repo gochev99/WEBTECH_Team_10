@@ -16,7 +16,6 @@ const getUsersController = (req: Request, res: Response, next: () => void) => {
 };
 
 login.use(getUsersController);
-
 login.post('/', validateUser, loginAuth, errorCatch(async (request: Request, response: Response) => {
 
     const user: IUser = response.locals.user;
@@ -27,7 +26,6 @@ login.post('/', validateUser, loginAuth, errorCatch(async (request: Request, res
     const cookieConfig = { path: '/', domain: '127.0.0.1', maxAge: 24 * 60 * 60 * 1000, secure: false };
 
     response.cookie('auth', token, cookieConfig);
-
     response.status(200).json({success: true});
 }));
 

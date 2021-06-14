@@ -4,6 +4,7 @@
   "description": "Repository for our project.",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,13 @@
   "homepage": "https://github.com/gochev99/WEBTECH_Team_10#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongodb": "^3.6.9",
-    "mongoose": "^5.12.13"
+    "mongoose": "^5.12.13",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
   }
 }

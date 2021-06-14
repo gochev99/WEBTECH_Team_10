@@ -3,6 +3,6 @@
         "target": "es5",
         "module": "commonjs"
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "index.ts"],
     "exclude": ["node_modules", "**/*.spec.ts"]
 }
