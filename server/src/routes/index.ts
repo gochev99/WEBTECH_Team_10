@@ -12,7 +12,7 @@ routes.get('/', (request: express.Request, response: express.Response) => {
     const rememberUser: string = request.cookies.remember;
 
     if (rememberUser) {
-        response.redirect('studets/marks');
+        response.redirect('../html/home');
     } else {
         response.redirect('login');
     }
