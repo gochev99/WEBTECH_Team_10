@@ -7,10 +7,7 @@
 
 const login = event => {
     event.preventDefault();
-
-
-    // const username = document.getElementById('Email').value;
-    // const password = document.getElementById('Password').value;
+    
     const username = document.querySelector('#input_username').value;
     const password = document.querySelector('#input_password').value;
 
@@ -39,7 +36,7 @@ const login = event => {
     fetch(url, options)
         .then(response => response.json())
         .then(response => loginUser(response))
-        .catch(error => errorCallback(console.log(error)));
+        .catch(error => console.log(error));
 
     console.log("send");
 };

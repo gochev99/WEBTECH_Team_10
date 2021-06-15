@@ -1,6 +1,9 @@
 import * as mongoose from 'mongoose';
+import ITicket from '../interfaces/ticket'
+const { Schema } = mongoose;
 
-const ticketSchema = new mongoose.Schema({
+
+const ticketSchema = new Schema<ITicket>({
     issueName: {
         type: String,
         required: [true, 'Issue name is required field.'],
@@ -27,8 +30,10 @@ const ticketSchema = new mongoose.Schema({
         }
 });
 
-const Ticket = mongoose.model('Ticket', ticketSchema);
+const Ticket = mongoose.model<ITicket>('Ticket', ticketSchema);
 
-export { ticketSchema };
 
+const TicketSchema = ticketSchema;
+
+export {Ticket, TicketSchema};
 export default Ticket;

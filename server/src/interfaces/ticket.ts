@@ -1,3 +1,5 @@
+import {Document} from 'mongoose'
+
 interface ITicket extends Document {
     issueName: string,
     issueDescription: string,
