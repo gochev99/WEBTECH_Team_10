@@ -1,4 +1,6 @@
-interface IUsers  {
+import { Document } from 'mongoose'
+
+interface IUsers extends Document {
     fullName: string,
     username: string,
     email: string,

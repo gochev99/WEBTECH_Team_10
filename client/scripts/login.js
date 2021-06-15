@@ -1,9 +1,3 @@
-// const sendRequest = (url, options, successCallback, errorCallback) => {
-//     fetch(url, options)
-//         .then(response => response.json())
-//         .then(response => successCallback(response))
-//         .catch(error => errorCallback(error));
-// };
 
 const login = event => {
     event.preventDefault();
@@ -31,7 +25,6 @@ const login = event => {
 
     const url = 'http://localhost:3002/login';
 
-    // sendRequest(url, options, loginUser, handleError);
 
     fetch(url, options)
         .then(response => response.json())
@@ -44,13 +37,10 @@ const login = event => {
 const loginUser = (data) => {
     console.log('login')
     if (data.error) {
-        const errors = document.getElementsByClassName('forgot');
-        errors.innerHTML = data.error;
-        console.log("error!");
+        console.log(`Error! ${data.error}`);
     } else {
         console.log("OK");
         window.location = '../html/home.html';
-        //return user.email;
     }
 }
 

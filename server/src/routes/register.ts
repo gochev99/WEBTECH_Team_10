@@ -21,7 +21,6 @@ register.post('/', validateUser, errorCatch(async (request: Request, response: R
         response.status(400).json({ success: false, error: 'Username is already taken' });
     } else {
         controller.createUser(request.body).catch(error => console.log(error));
-    
         response.status(200).json({success: true});
     }
 }));

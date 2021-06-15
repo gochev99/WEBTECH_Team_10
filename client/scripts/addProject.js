@@ -23,18 +23,11 @@ const addProject = event => {
         body: JSON.stringify(projects)
     };
 
-    const url = 'http://localhost:3002/login';
+   // const url = 'http://localhost:3002/login';
 
-    sendRequest(url, options, loginUser, handleError);
+   // router.get('/:email', projectController.getAllProjects);
 };
 
-const loginUser = response => {
-    if (response.success) {
-        // kakvo se slutchva sled vavejdane na dannite
-    } else {
-        console.log(response.error);
-    }
-}
 
 /*function createElement(text) {
     console.log("create")
@@ -95,13 +88,13 @@ function createProject() {
     const endDate = document.querySelector('#end-date').value;
 
     const project = {
-        'projectname': nameProject.value,
+        'projectName': nameProject.value,
         'startDate': startDate.value,
-        'targetEndDate': endDate
+        'targetEndDate': endDate.value
         
     }
-    const username = localStorage.getItem('username');
-    const url = `http://localhost:3002/projects/${username}`
+  
+    const url = `http://localhost:3002/projects/`;
 
     const options = {
         method: 'POST',

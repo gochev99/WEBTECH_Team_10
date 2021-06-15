@@ -1,11 +1,10 @@
 import * as mongoose from 'mongoose'
-//import ITicket from "../interfaces/ticket"
 import IProject from '../interfaces/project'
 import User from '../interfaces/user'
 import Project from '../models/project'
 
 
-class ProjectService {
+class ProjectFunction {
     constructor() { }
 
     private notExists = (name: string) => {
@@ -28,6 +27,18 @@ class ProjectService {
         })
     };
 
+    async getProjectByName(projectName: string) {
+        return new Promise(async (res, rej) => {
+            const projectArr = await Project.findOne({ projectName: projectName }).select('projects').exec();
+            const currentProject = projectArr.get('projects', null, { getters: false });
+            if (currentProject) {
+                res(currentProject);
+                return;
+            }
+            rej("No project found");
+        });
+    }
+
     async addProject(project: IProject) {
         return new Promise((res, rej) => {
             this.notExists(project.projectName).then(async () => {
@@ -39,18 +50,12 @@ class ProjectService {
                 });
 
                 await newProject.save();
-
-                User.updateOne({email: project.creator}, {$push: {projects: newProject}}).exec();
-
-                res(true);
             }).catch((err) => {
-                console.log(`ProjectService: addProject: Error: ${err}`);
+                console.log(`ProjectFunction: addProject: Error: ${err}`);
                 rej("Project exists.");
             });
         })
     }
-
-
 }
 
-export default new ProjectService();
+export default new ProjectFunction();

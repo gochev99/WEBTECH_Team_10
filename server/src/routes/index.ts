@@ -2,8 +2,8 @@ import * as express from 'express';
 
 import login from './login';
 import register from './register';
-import UserController from '../controllers/users-controller';
-import ProjectFunctions, { getProjects } from '../controllers/project-controller';
+// import UserController from '../controllers/users-controller';
+//import ProjectFunctions, { getProjects } from '../controllers/project-controller';
 
 const routes = express.Router();
 
@@ -18,9 +18,7 @@ routes.get('/', (request: express.Request, response: express.Response) => {
     }
 }); */
 
-
-
-routes.get('/:projectName', getProjects);
+// routes.get('/:projectName', getProjects);
 
 
 export default routes;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="register.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- <script src="index.js" async></script> -->
+    <script src="../scripts/register.js" async></script>
     <title>Issue Tracker</title>
 </head>
 <body>
@@ -19,26 +19,26 @@
                 <h1>Sign up</h1>
                 <div class ='input-template' data-validate="Name is required">
                     <span class='labels'><b>Full Name</b></span>
-                    <input class='my-inputs' type='text' placeholder="Name..." required>
+                    <input id='register-full-name' class='my-inputs' type='text' placeholder="Name..." required>
                 </div>
                 <div class ='input-template' data-validate="Username is required">
                     <span class='labels'><b>Username</b></span>
-                    <input class='my-inputs' type='text' placeholder="Username..." required>
+                    <input id='register-username' class='my-inputs' type='text' placeholder="Username..." required>
                 </div>
                 <div class ='input-template' data-validate="Email is required">
                     <span class='labels'><b>Email</b></span>
-                    <input class='my-inputs' type='text' placeholder="Email address..." required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input id='register-email' class='my-inputs' type='text' placeholder="Email address..." required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
                 <div class ='input-template' data-validate="Password is required">
                     <span class='labels'><b>Password</b></span>
-                    <input class='my-inputs' type='password' placeholder="****************" required>
+                    <input id='register-password' class='my-inputs' type='password' placeholder="****************" required>
                 </div>
                 <div class ='input-template' data-validate="Repeat Password is required">
                     <span class='labels'><b>Repeat Password</b></span>
-                    <input class='my-inputs' type='password' placeholder="****************" required>
+                    <input id='register-repeat-password' class='my-inputs' type='password' placeholder="****************" required>
                 </div>
                 <div id='wrap-links'>
-                    <a id='login-link' href='../login/index.html'>Register</a>
+                    <a id='login-link' href='../home/home.html'>Register</a>
                     <span id='sign-in'>
                         <a href='../login/index.html'>
                             Sign in

@@ -1,60 +1,63 @@
+import { Request, Response } from 'express';
+import UserFunction from '../functions/user';
+import User from '../models/user';
+import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
-import * as _ from 'lodash';
-import * as mongoose from 'mongoose';
-import IUser from '../interfaces/user';
-import { UserDocument, User } from '../models/user';
 
 
-class UserController {
-    construct() {} 
-
-    public async createUser(user: IUser): Promise<void> {
-        bcrypt.hash(user.password, 10, async (error: Error, hash: string) => {
-            if (error) {
-                return;
-            }
-
-            user.password = hash;
-
-            const newUser = new User({
-                _id: new mongoose.Types.ObjectId(),
-                fullName: user.fullName,
-                username: user.username,
-                email: user.email,
-                password: user.password
-            });
-
-            await newUser.save();
-        });
+//register
+export const register = async (req: Request, res: Response) => {
+    const body = req.body;
+    if ((req.body.constructor === Object && Object.keys(req.body).length === 0) || !req.body.password || !req.body.email) {
+        res.status(406).send("Invalid input");
+        return;
     }
 
-    public async findUser(user: string): Promise<UserDocument> {
-        
-        return User.findOne({ username: user }).exec();
-    }
+    await UserFunction.addUser(body).then(() => {
+        const token = jwt.sign(
+            { email: body.email },
+            process.env.TOKEN_SECRET,
+            { expiresIn: '5h' }
+        );
 
-
-    public validateUser(user: IUser, confirmPassword: string): string[] {
-        const errors: string[] = [];
-
-        if (!user.username) {
-            errors.push('Please input user name');
-        } else if (user.username.length > 15) {
-            errors.push('User name must be less than 15 symbols');
-        }
-
-        if (!user.password) {
-            errors.push('Please input password');
-        } else if (!user.password.match(/[a-zA-z0-9]?/)) {
-            errors.push('Password must contain letters and digits');
-        } else if (user.password.length < 5) {
-            errors.push('Password must be longer than 5 symbols');
-        } else if (confirmPassword && user.password !== confirmPassword) {
-            errors.push('Passwords must match.');
-        }
-
-        return errors;
-    }
+        res.setHeader('Authorization', token);
+        res.status(200).json({ "token": token });
+        return;
+    }).catch((err: Error) => {
+        res.status(406).json({ "error": err });
+        return; 
+    });
 }
 
-export default UserController;
+//login
+export const login = async (req: Request, res: Response) => {
+    const body = req.body;
+    //body check
+    if ((req.body.constructor === Object && Object.keys(req.body).length === 0) || !req.body.email || !req.body.password) {
+        res.status(406).send("Invalid input");
+        
+        return;
+    } 
+
+    UserFunction.login(body.email, body.password)
+        .then(() => {
+            const token = jwt.sign(
+                { email: body.email },
+                process.env.TOKEN_SECRET,
+                { expiresIn: '5h' }
+            );
+
+            res.setHeader('Authorization', token);
+            res.status(200).json({ "token": token });
+            return;
+        }).catch((err: Error) => {
+            res.status(401).json({ "error": err });
+            return;
+        });
+};
+
+export const logout = async (req: Request, res: Response) => {
+    //delete token    
+    res.status(200).send("Logout success!");
+    return;
+};
