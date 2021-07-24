@@ -1,60 +1,18 @@
 import * as mongoose from 'mongoose'
-import ITicket from "../interfaces/ticket"
+import { Request, Response } from 'express'
 import Ticket from '../models/ticket'
+import ITicket from '../interfaces/ticket';
+import TicketFunction from '../functions/ticket'
 
-class TicketFunctions {
-    async addTicket(name: string, ticket: ITicket) {
-        return new Promise((res, rej) => {
-            this.notExists(ticket.issueName).then(async () => {
-                const newTicket = new Ticket({
-                    _id: new mongoose.Types.ObjectId(),
-                    issueName: ticket.issueName,
-                    issueDescription: ticket.issueDescription,
-                    relatedProject: ticket.relatedProject,
-                    priority: ticket.priority,
-                    targetResolutionDate: ticket.targetResolutionDate
-                });
+export const postTicket = async (req: Request, res: Response) => {
+    const name = req.params.name;
+    const newTicket = req.body;
 
-                await newTicket.save();
-                res(true);
-
-            })//.catch((err) => {
-                //console.log(`ProjectFunctions: addProject: Error: ${err}`);
-                //rej("Project exists");
-           // });
+    await TicketFunction.addTicket(name, newTicket)
+        .then(() => {
+            res.status(200).json({ 'msg': 'Ticked is added' });
         })
-    }
-
-    notExists = (issueName: string) => {
-        return new Promise(async (res, rej) => {
-            const issue = await Ticket.findOne({ issueName: issueName }).exec();
-            if (issue) {
-                rej("Issue exists.");
-            }
-            res(true);
+        .catch((err: Error) => {
+            res.status(304).json({ "error": err });
         });
-    };
-
-    private exists = (issueName: string) => {
-        return new Promise(async (res, rej) => {
-            const issue = await Ticket.findOne({ issueName: issueName }).exec();
-            if (issue) {
-                res(true);
-            }
-            rej("Issue doesn't exist.");
-        })
-    };
-
-    async deleteTicket(name: string, issueName: string): Promise<Boolean> {
-        return new Promise(async (res, rej) => {
-
-            const deletedTicket = await Ticket.deleteOne({ issueName: name }).exec();
-            if (deletedTicket) {
-                res(true);
-            }
-            rej("Ticket is deleted.");
-        })
-    };
 }
-
-export default new TicketFunctions();

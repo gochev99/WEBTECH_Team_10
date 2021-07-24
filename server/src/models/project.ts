@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 const projectSchema = new mongoose.Schema({
-    projectname: {
+    projectName: {
         type: String,
         required: [true, 'Project name is required field.'],
         minlength: [3, 'Project name must be at least 3 characters.'],
